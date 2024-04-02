@@ -1,0 +1,28 @@
+﻿@using WebApplication8.Models.Entity
+@model List<TBLKATEGORILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Kategori İD</th>
+            <th>Kategori Adı</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+        <tbody>
+            @foreach(var ktgr in Model)
+            {
+            <tr>
+                <td>@ktgr.KATEGORIID</td>
+                <td>@ktgr.KATEGORIAD</td>
+                <td><a href="/KATEGORI/SIL/@ktgr.KATEGORIID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/KATEGORI/KategoriGetir/@ktgr.KATEGORIAD" class="btn btn-success">GÜNCELLE</a></td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+<a href="/KATEGORI/YENIKATEGORI/" class="btn btn-primary">YENİ KATEGORİ EKLE</a>
